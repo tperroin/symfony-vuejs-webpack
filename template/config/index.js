@@ -1,12 +1,18 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+// Symfony bundle name
+var __root = path.resolve(__dirname, '../../../../../..');
+var bundlePath = path.resolve(__dirname, '../../../..');
+var bundleName = path.parse(bundlePath).base.toLowerCase();
+
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    //Put
+    index: path.resolve(__root, 'web/bundles/' + bundleName + '/index.html'),
+    assetsRoot: path.resolve(__root, 'web/bundles/' + bundleName),
+    assetsSubDirectory: '/',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
